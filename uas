@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Logic Challenge – Aplikasi Zakat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Logic Challenge – Aplikasi Zakat</h1>
+      <p>UAS Matematika Logika</p>
+
+      <nav>
+        <button onclick="showPage('kalkulator')">Kalkulator</button>
+        <button onclick="showPage('infografis')">Panduan</button>
+        <button onclick="showPage('hukum')">Hukum</button>
+        <button onclick="showPage('dalil')">Dalil</button>
+        <button onclick="showPage('tabel')">Tabel Kebenaran</button>
+        <button onclick="showPage('algoritma')">Algoritma</button>
+        <button onclick="showPage('tentang')" >About</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="tentang" class="active">
+        <h4>Tentang Aplikasi</h4>
+        <p>
+          Aplikasi ini dibuat sebagai bagian dari
+          <strong>UAS Matematika Logika</strong>
+          dengan tujuan mengimplementasikan konsep logika proposisional dan
+          aljabar Boolean dalam studi kasus penentuan zakat.
+        </p>
+        <hr/>
+        <h4>Data Pembuat</h4>
+        <div>
+          <img src="WhatsApp Image 2026-01-02 at 10.11.58.jpeg" class="foto-profil" />
+        </div>
+        <ul>
+          <p>Nama Mahasiswa: Melisa Husna</p>
+          <p>NIM: 256512012</p>
+          <p>Kelas: Reguler</p>
+          <p>Level Challenge: 2</p>
+        </ul>
+        <hr />
+        <h4>Info Dosen</h4>
+        <div>
+          <div class="img-profil">🧑‍💼</div>
+        </div>
+        <ul>
+          <p>Dosen : Iin Sholihin, M.Kom</p>
+          <p>NIDN : 5943765666130312</p>
+          <p>
+            Link :
+            <a href="https://kangsolihin.web.id">Kang Solihin Personal Web</a>
+          </li>
+        </p>
+      </section>
+
+      <section id="infografis"class="fotopanduan" >
+        <h2>Panduan Infografis</h2>
+        <img src="panduankalkulator.jpg" style="width:350px; height:auto;"/>
+      </section>
+
+      <section id="tabel">
+        <h2>Tabel Kebenaran Zakat Penghasilan</h2>
+        <table>
+          <tr>
+            <th>Islam</th>
+            <th>Penghasilan ≥ Nisab</th>
+            <th>Haul</th>
+            <th>Wajib Zakat</th>
+          </tr>
+          <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+        </table>
+        <h2>Tabel Kebenaran Zakat Emas</h2>
+<table>
+  <tr>
+    <th>Emas ≥ Nisab</th>
+    <th>Haul</th>
+    <th>Wajib Zakat</th>
+  </tr>
+  <tr><td>1</td><td>1</td><td>1</td></tr>
+  <tr><td>1</td><td>0</td><td>0</td></tr>
+  <tr><td>0</td><td>1</td><td>0</td></tr>
+  <tr><td>0</td><td>0</td><td>0</td></tr>
+</table>
+<h2>Tabel Kebenaran Zakat Pertanian</h2>
+<table>
+  <tr>
+    <th>Panen ≥ Nisab</th>
+    <th>Wajib Zakat</th>
+  </tr>
+  <tr><td>1</td><td>1</td></tr>
+  <tr><td>0</td><td>0</td></tr>
+</table>
+<h2>Tabel Kebenaran Zakat Harta Lain</h2>
+<table>
+  <tr>
+    <th>Total Harta ≥ Nisab</th>
+    <th>Wajib Zakat</th>
+  </tr>
+  <tr><td>1</td><td>1</td></tr>
+  <tr><td>0</td><td>0</td></tr>
+</table>
+
+      </section>
+
+      <section id="hukum">
+    <h2>Hukum Logika</h2>
+
+    <p>
+        Hukum-hukum logika yang digunakan dalam perhitungan zakat pada aplikasi ini
+        berfungsi untuk menentukan apakah seseorang <b>wajib zakat</b> atau <b>tidak</b>
+        berdasarkan syarat-syarat tertentu seperti Islam, nisab, dan haul.
+    </p>
+
+    <ul>
+        <li>
+            <b>Hukum Komutatif</b><br>
+            Implementasi pada: Urutan pengecekan syarat zakat tidak memengaruhi hasil.
+            <br>
+            Contoh: <i>Islam ∧ Nisab ∧ Haul = Haul ∧ Nisab ∧ Islam</i>
+        </li>
+
+        <li>
+            <b>Hukum Asosiatif</b><br>
+            Implementasi pada: Pengelompokan beberapa syarat zakat.
+            <br>
+            Contoh: <i>(Islam ∧ Nisab) ∧ Haul = Islam ∧ (Nisab ∧ Haul)</i>
+        </li>
+
+        <li>
+            <b>Hukum Identitas</b><br>
+            Implementasi pada: Jika semua syarat bernilai benar, maka hasil mengikuti nilai tersebut.
+            <br>
+            Contoh: <i>(Islam ∧ Nisab ∧ Haul) ∧ 1 = Wajib Zakat</i>
+        </li>
+
+        <li>
+            <b>Hukum Dominasi</b><br>
+            Implementasi pada: Jika salah satu syarat bernilai salah, maka zakat tidak wajib.
+            <br>
+            Contoh: <i>Islam ∧ Nisab ∧ 0 = Tidak Wajib Zakat</i>
+        </li>
+
+        <li>
+            <b>Hukum Idempoten</b><br>
+            Implementasi pada: Pemeriksaan syarat yang sama tidak mengubah hasil.
+            <br>
+            Contoh: <i>Nisab ∧ Nisab = Nisab</i>
+        </li>
+
+        <li>
+            <b>Hukum De Morgan</b><br>
+            Implementasi pada: Penentuan kondisi tidak wajib zakat.
+            <br>
+            Contoh: <i>¬Islam ∨ ¬Nisab ∨ ¬Haul = Tidak Wajib Zakat</i>
+        </li>
+
+        <li>
+            <b>Hukum Implikasi</b><br>
+            Implementasi pada: Jika seluruh syarat terpenuhi maka zakat wajib.
+            <br>
+            Contoh: <i>(Islam ∧ Nisab ∧ Haul) → Wajib Zakat</i>
+        </li>
+    </ul>
+</section>
+
+
+      <section id="dalil">
+        <h2>Dalil Zakat</h2>
+        <th>Dalil zakat dan pendapat ulama yang menjadi acuan aplikasi ini antara lain:</th>
+        <hr />
+        <h3>Dalil Al-Qur’an</h3>
+        <h4>QS. At-Taubah [9]: 103</h4>
+        <i>“Ambillah zakat dari sebagian harta mereka, dengan zakat itu kamu membersihkan dan mensucikan mereka…”</i>
+        <h4>QS. Al-Baqarah [2]: 267</h4>
+        <i>“Wahai orang-orang yang beriman, infakkanlah sebagian dari hasil usahamu yang baik-baik…”</i>
+        <hr />
+        <h3>Hadits Nabi ﷺ</h3>
+        <h4>Hadits tentang kewajiban zakat harta</h4>
+        <i>“Islam dibangun atas lima perkara… menunaikan zakat…”</i><th> (HR. Bukhari dan Muslim) — shahih</th>
+        <h4>Hadits tentang nisab dan haul</h4>
+        <i>“Tidak ada kewajiban zakat pada harta hingga berlalu satu tahun.”</i><th> (HR. Abu Dawud dan Tirmidzi) — hasan shahih</th>
+        <hr />
+
+        <h3>Ijtihad Ulama</h3>
+        <th>Dalam kitab Fiqh az-Zakah, Yusuf al-Qaradawi menyatakan bahwa penghasilan profesi wajib dizakati apabila telah mencapai nisab dan haul atau setara dengan nisab tahunan.</th>
+        <hr/>
+
+        <h3>Ijtihad Majelis Ulama Indonesia (MUI),
+Perihal: Zakat Uang dan Aset Modern (termasuk uang virtual)</h3>
+        <th>Berdasarkan Fatwa MUI No. 3 Tahun 2003, zakat wajib atas uang, tabungan, dan penghasilan yang mencapai nisab, termasuk bentuk harta modern selama memiliki nilai ekonomi.</th>
+        <hr/>
+
+        <h3>Dalil dan Pendapat Lainnya,
+
+Keputusan Majma’ al-Fiqh al-Islami (OKI)</h3>
+        <th>Menetapkan bahwa harta kekayaan baru yang memiliki nilai tukar dan disimpan sebagai aset wajib dizakati apabila memenuhi syarat nisab dan haul.</th>
+      </section>
+
+      <section id="algoritma">
+        <h2>Algoritma Hitung Zakat(Pseudocode)</h2>
+        <iframe src="algoritma.txt" width="100%" height="500"></iframe>
+      </section>
+
+      <section id="kalkulator">
+  <div class="container">
+    <h1>Kalkulator Zakat Lengkap</h1>
+
+    <div class="section">
+      <p><strong>NIM:</strong> 256512012</p>
+      <p><strong>Nama:</strong> Melisa Husna</p>
+      <p><strong>Kelas:</strong> Informatika-Logika Matematika</p>
+      <p><strong>Dosen:</strong> Iin, M.Kom</p>
+      <p><strong>Kampus:</strong> Ma'soem University</p>
+    </div>
+
+    <div class="section">
+        <h3 class="title">Pilih dan Masukkan Data Zakat</h3>
+
+        <label><input type="checkbox" id="chkEmas"> Zakat Emas</label>
+        <div class="checkbox-group" id="emasGroup" style="display:none;">
+            Jumlah emas (gram): <input type="number" id="jumlahEmas" min="0">
+            Lama kepemilikan (tahun): <input type="number" id="haulEmas" min="0">
+        </div>
+
+        <label><input type="checkbox" id="chkPertanian"> Zakat Pertanian</label>
+        <div class="checkbox-group" id="pertanianGroup" style="display:none;">
+            Hasil panen (kg): <input type="number" id="hasilPanen" min="0">
+            Jenis irigasi:
+            <select id="irigasi">
+                <option value="alami">Alami (10%)</option>
+                <option value="buatan">Buatan (5%)</option>
+            </select>
+        </div>
+
+        <label><input type="checkbox" id="chkPenghasilan"> Zakat Penghasilan</label>
+        <div class="checkbox-group" id="penghasilanGroup" style="display:none;">
+            Penghasilan bulanan (Rp): <input type="number" id="penghasilan" min="0">
+            Pengeluaran bulanan (Rp): <input type="number" id="pengeluaran" min="0">
+        </div>
+
+        <label><input type="checkbox" id="chkHartaLain"> Harta Lain</label>
+        <div class="checkbox-group" id="hartaLainGroup" style="display:none;">
+            <p class="title">Masukkan Nilai Masing-masing Harta:</p>
+            <label>Perak (gram): <input type="number" id="perak" min="0"></label>
+            <label>Uang dan surat berharga (Rp): <input type="number" id="uang" min="0"></label>
+            <label>Perniagaan (Rp): <input type="number" id="perniagaan" min="0"></label>
+            <label>Peternakan/Perikanan (Rp): <input type="number" id="peternakan" min="0"></label>
+            <label>Pertambangan (Rp): <input type="number" id="pertambangan" min="0"></label>
+            <label>Investasi (Rp): <input type="number" id="investasi" min="0"></label>
+            <label>Tabungan (Rp): <input type="number" id="tabungan" min="0"></label>
+            <label>Rikaz (Rp): <input type="number" id="rikaz" min="0"></label>
+        </div>
+
+      <button onclick="hitungZakat()">💠 Hitung Total Zakat</button>
+    </div>
+
+    <div class="result" id="hasil"></div>
+    <div class="logic" id="logika"></div>
+    <div class="argument" id="argumen"></div>
+  </div>
+</section>
+
+    </main>
+
+    <footer>UAS Matematika Logika © 2025</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
