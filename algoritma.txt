@@ -1,0 +1,84 @@
+BEGIN
+
+  SET kursEmas ← 2321000
+
+  totalZakat ← 0
+  output ← ""
+  argumenText ← ""
+
+  IF chkEmas = TRUE THEN
+      READ jumlahEmas, haulEmas
+      IF jumlahEmas ≥ 85 AND haulEmas ≥ 1 THEN
+          zakatEmas ← jumlahEmas × kursEmas × 0.025
+          totalZakat ← totalZakat + zakatEmas
+          output ← output + "Zakat Emas: " + zakatEmas
+          argumenText ← argumenText + "Emas memenuhi nisab dan haul"
+      ELSE
+          output ← output + "Emas belum mencapai nisab atau haul"
+      ENDIF
+  ENDIF
+
+  IF chkPertanian = TRUE THEN
+      READ hasilPanen, jenisIrigasi
+      nisabPertanian ← 520
+      IF hasilPanen ≥ nisabPertanian THEN
+          IF jenisIrigasi = "alami" THEN
+              tarif ← 0.10
+          ELSE
+              tarif ← 0.05
+          ENDIF
+          zakatPertanian ← hasilPanen × kursEmas × tarif / 10
+          totalZakat ← totalZakat + zakatPertanian
+          output ← output + "Zakat Pertanian: " + zakatPertanian
+          argumenText ← argumenText + "Hasil panen mencapai nisab"
+      ELSE
+          output ← output + "Hasil panen belum mencapai nisab"
+      ENDIF
+  ENDIF
+
+  IF chkPenghasilan = TRUE THEN
+      READ penghasilan, pengeluaran
+      penghasilanBersih ← penghasilan - pengeluaran
+      nisabPenghasilan ← 85 × kursEmas
+      IF penghasilanBersih × 12 ≥ nisabPenghasilan THEN
+          zakatPenghasilan ← penghasilanBersih × 0.025
+          totalZakat ← totalZakat + zakatPenghasilan
+          output ← output + "Zakat Penghasilan: " + zakatPenghasilan
+          argumenText ← argumenText + "Penghasilan memenuhi nisab tahunan"
+      ELSE
+          output ← output + "Penghasilan belum mencapai nisab"
+      ENDIF
+  ENDIF
+
+  IF chkHartaLain = TRUE THEN
+      READ perak, uang, perniagaan, peternakan,
+           pertambangan, investasi, tabungan, rikaz
+
+      nilaiPerak ← perak × 13000
+
+      totalHarta ← nilaiPerak + uang + perniagaan + peternakan +
+                    pertambangan + investasi + tabungan + rikaz
+
+      nisabHarta ← 85 × kursEmas
+
+      IF totalHarta ≥ nisabHarta THEN
+          zakatHarta ← (nilaiPerak + uang + perniagaan +
+                          investasi + tabungan) × 0.025
+                        + peternakan × 0.025
+                        + pertambangan × 0.025
+                        + rikaz × 0.20
+
+          totalZakat ← totalZakat + zakatHarta
+          output ← output + "Zakat Harta Lain: " + zakatHarta
+          argumenText ← argumenText + "Total harta mencapai nisab"
+      ELSE
+          output ← output + "Harta lain belum mencapai nisab"
+      ENDIF
+  ENDIF
+
+  DISPLAY output
+  DISPLAY "Total Zakat: " + totalZakat
+  DISPLAY "Hukum Logika: Konjungsi (AND) dan Implikasi"
+  DISPLAY argumenText
+
+END
